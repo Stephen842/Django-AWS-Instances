@@ -3,6 +3,7 @@ Django-AWS-Instance-Manager
 A Django-based web application that automates the creation and management of Amazon EC2 instances for users upon registration. The app integrates with AWS services using boto3, enabling seamless scaling, instance lifecycle management, and user-specific instance configurations.
 
 Features
+
     i. Automated EC2 Instance Creation: Automatically provides multiple EC2 instances for each new user during the registration process.
 
     ii. User-Specific Instance Management: Each user can have unique configurations (e.g., instance type, region, etc.).
@@ -14,7 +15,9 @@ Features
     v. Seamless Integration with AWS: Utilizes boto3 for AWS services integration, ensuring smooth communication with EC2 instances.
 
 Installation
+
 Prerequisites
+
     i. Python 3.x
 
     ii. Django 3.x or later
@@ -24,6 +27,7 @@ Prerequisites
     iv. boto3 library for AWS integration
 
 Step-by-Step Installation
+
     i. Clone the Repository:
             git clone git@github.com:Stephen842/Django-AWS-Instances.git
             cd Django-AWS-Instances
@@ -47,6 +51,7 @@ Step-by-Step Installation
             python manage.py runserver
 
 Usage
+
 i. User Registration:
         When a new user registers on the platform, the system automatically creates one or more EC2 instances for that user.
 
@@ -60,7 +65,9 @@ iv. Instance Lifecycle:
         Users can start, stop, or terminate their instances based on their needs, and these changes are reflected in the app.
 
 Configuration
+
 Instance Configuration Options
+
     i. Instance Type: Select the instance type (e.g., t2.micro, t2.medium) when the user registers.
 
     ii. Region: Choose the AWS region where the instances should be launched (e.g., us-east-1, eu-west-1).
@@ -68,7 +75,9 @@ Instance Configuration Options
     iii. Security Groups: Define the security groups for each instance (e.g., HTTP, SSH access).
 
 Admin Panel
+
 The admin panel allows you to:
+
     i. View all EC2 instances for each user.
 
     ii. Start/Stop/Terminate instances.
@@ -76,6 +85,7 @@ The admin panel allows you to:
     iii. Manage User-specific Configurations (instance types, regions, etc.).
 
 Technologies Used
+
     i.  Django: Python web framework for building the backend.
 
     ii. boto3: AWS SDK for Python, used to interact with AWS EC2 services.
@@ -87,7 +97,9 @@ Technologies Used
     v. Celery (optional): For handling background tasks such as instance creation or deletion asynchronously.
 
 Contributing
+
 We welcome contributions! If you'd like to improve or add features to the project, please fork the repository and submit a pull request. Here's how you can contribute:
+
     i. Fork the repository
 
     ii. Create a new branch for your feature (git checkout -b feature-name)
@@ -101,11 +113,13 @@ We welcome contributions! If you'd like to improve or add features to the projec
     vi. Open a pull request
 
 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgments
+
     i. boto3: For making AWS services accessible from Python.
 
     ii. Django: For providing a robust framework to build this web application.
-    
+
     iii. AWS: For providing scalable cloud solutions.
