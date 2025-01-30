@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Instances' # App name 
+    'Instances', # App name 
     'whitenoise.runserver_nostatic',
     'widget_tweaks',  # For manipulation of form field attribute
     'django_browser_reload',
