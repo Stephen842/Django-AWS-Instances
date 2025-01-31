@@ -58,6 +58,15 @@ MIDDLEWARE = [
     'django_browser_reload.middleware.BrowserReloadMiddleware'
 ]
 
+AUTH_USER_MODEL = 'Instances.MyUser'
+
+AUTHENTICATION_BACKENDS = [
+    # This is for the custom Auth backend for the instance App
+    'Instances.BackendAuth.CustomAuthBackend',
+
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 ROOT_URLCONF = 'AWS_instance_manager.urls'
 
 TEMPLATES = [

@@ -5,7 +5,7 @@ from django.contrib.auth.hashers import check_password, make_password
 from django.contrib import messages
 from .forms import UserForm, SigninForm # Import the form
 from .models import MyUser
-
+from .tasks import create_ec2_instance
 
 def home(request):
     context = {
@@ -23,11 +23,17 @@ class Signup(View):
         form = UserForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower()  # Normalize username to lowercase
+            if user.username:  # Ensure username exists before modifying
+                user.username = user.username.lower()  # Normalize username to lowercase
             user.save()
+
+            # Trigger the Celery task asynchronously to create an EC2 instance for the new user
+            #create_ec2_instance.delay(user.id)  # This will run in the background
+
+            # Redirect the user to the login page after successful registration
             return redirect('login')
-        else:
-            return render(request, 'pages/signup.html', {'form': form})
+        
+        return render(request, 'pages/signup.html', {'form': form})
 
 # To handle user's authentication process with error handling capabilities
 def Signin(request):

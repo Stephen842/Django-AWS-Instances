@@ -13,14 +13,7 @@ class UserForm(forms.ModelForm):
 
     class Meta:
         model = MyUser
-        fields = ['name', 'username', 'email']
-
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'username': forms.TextInput(attrs={'class': 'form-control'}),
-            #'phone': forms.NumberInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-        }
+        fields = ['name', 'username', 'email', 'phone']
 
     def clean_name(self):
         name = self.cleaned_data.get('name')
@@ -70,8 +63,8 @@ class UserForm(forms.ModelForm):
         return user
     
 class SigninForm(forms.Form):
-    identifier = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Username or Email'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    identifier = forms.CharField()
+    password = forms.CharField()
 
     def clean_identifier(self):
         identifier = self.cleaned_data.get('identifier')
